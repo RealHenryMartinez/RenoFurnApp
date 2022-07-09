@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { NavigationContainer} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CameraScreen from './screens/CameraScreen';
 
@@ -11,13 +11,12 @@ import { HomeScreen } from './screens/HomeScreen';
 const Tabs = createBottomTabNavigator();
 
 export default function App() {
-  
-  return (
-
-
     
 
+  return (
+
     <NavigationContainer>
+      
       <Tabs.Navigator>
       <Tabs.Screen name="Home" component={HomeScreen} />
         <Tabs.Screen name="Camera"  component={CameraScreen} />

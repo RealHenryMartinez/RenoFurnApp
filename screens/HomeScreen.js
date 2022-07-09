@@ -2,14 +2,23 @@ import React from 'react'
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
 import { FurnitureCard } from '../components/FurnitureCard';
+import CameraScreen from './CameraScreen';
 
 
 let couch1 = require("../assets/couch.png");
 
+
+
 export const HomeScreen = () => {
-  return (
+    // function newButton() {
+    //     CameraScreen
+    // }
+  
+    return (
     <View style={styles.container}>
-    <FurnitureCard price={200}/>
+      {/* <Button onPress={ newButton } title="a"/>  */}
+
+    <FurnitureCard price={200} />
     <FurnitureCard price={300} image={couch1}/>
     
     {/* <Button 
