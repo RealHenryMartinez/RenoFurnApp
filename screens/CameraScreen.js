@@ -1,18 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, Button, Image } from 'react-native';
+import {NativeModules, StyleSheet, Text, View, SafeAreaView, Button, Image } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import { Camera } from 'expo-camera';
 import { shareAsync } from 'expo-sharing';
 import * as MediaLibrary from 'expo-media-library';
 
+// importing commponent
+import {CameraOptions, ImageLibraryOptions, Callback, ImagePickerResponse} from './types';
+export * from './types';
+
+
 // fixing camera reloading issue
 import { useIsFocused } from '@react-navigation/native';
+
+
 
 //include all data //
 export default function CameraScreen() {
     // useRef() <- does not cause the page to keep refreshing 
     let cameraRef = useRef();
-
+    const DEFAULT_OPTIONS: ImageLibraryOptions & CameraOptions = {
+        mediaType: 'photo',
+        videoQuality: 'high',
+        quality: 1,
+        maxWidth: 0,
+        maxHeight: 0,
+        includeBase64: false,
+        cameraType: 'back',
+        selectionLimit: 1,
+        saveToPhotos: false,
+        durationLimit: 0,
+        includeExtra: false,
+        presentationStyle: 'pageSheet'
+      };
 // re renders whenever switched to that tab
     const isFocused = useIsFocused();
 
@@ -96,15 +116,16 @@ export default function CameraScreen() {
                 </View>
                 <StatusBar style="auto" />
             </Camera> : null} */}
-            {showCamera ? <Camera style={styles.container} ref={cameraRef}>
+            {isFocused ? <Camera style={styles.container} ref={cameraRef}>
 
             <View style={styles.buttonContainer}>
                 <Button title="Take Pic" onPress={takePic} />
+                <Button style={styles.buttonStyle} title= "close" onPress={() => setShowCamera(null)} />
             </View>
             <StatusBar style="auto" />
-            </Camera> : <View>
-                    <Button title= "SHOW CAMERA" onPress={() => setShowCamera(true)} />
-                </View>}
+            </Camera> : null}
+            
+            
         </>
     );
 }
@@ -122,5 +143,42 @@ const styles = StyleSheet.create({
     preview: {
         alignSelf: 'stretch',
         flex: 1
-    }
+    },
+    buttonStyle: {
+        padding: 40,
+        
+    },
 });
+// k
+
+
+
+
+
+export function launchCamera(options: CameraOptions, callback?: Callback) : Promise<ImagePickerResponse> {
+  return new Promise(resolve => {
+    NativeModules.ImagePickerManager.launchCamera(
+      {...DEFAULT_OPTIONS, ...options},
+      (result: ImagePickerResponse) => {
+        if(callback) callback(result);
+        resolve(result);
+      },
+    );
+  });  
+}
+
+export function launchImageLibrary(
+  options: ImageLibraryOptions,
+  callback?: Callback,
+) : Promise<ImagePickerResponse> {
+  return new Promise(resolve => {
+    NativeModules.ImagePickerManager.launchImageLibrary(
+      {...DEFAULT_OPTIONS, ...options},
+      (result: ImagePickerResponse) => {
+        if(callback) callback(result);
+        resolve(result);
+      },
+    );
+  })
+  
+}

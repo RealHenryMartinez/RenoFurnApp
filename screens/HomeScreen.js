@@ -47,16 +47,14 @@ export const HomeScreen = () => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text>
-            <SectionList 
-          sections={[
-            { price: ["200"], image: furniture1, material: ["wood"]},
-            { price: ["230"], image: furniture2, material: ["metal"]},
-            { price: ["240"], image: furniture3, material: ["plastic"] },
-            { price: ["250"], image: furniture4, material: ["wood"] },
-            { price: ["260"], image: furniture5, material: ["wood"] }, 
-          ]} // parameter -> item being passed -> render item //
+            <SectionList
+                style={styles.imagestyle} 
+                sections={[
+                    {title: 'Furniture', data: ["price: 200", "Material: wood"]},
+                ]} // parameter -> item being passed -> render item //
+
           renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-          renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+          renderSectionHeader={({section}) => <Text style={styles.modalText}>{section.title}</Text>}
           // keyExtractor={(item, index) => `basicListEntry-${item.title}`}
         />
             </Text>
@@ -64,22 +62,17 @@ export const HomeScreen = () => {
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle}>Close</Text>
             </Pressable>
           </View>
         </View>
       </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </Pressable>
     <FlatList 
+        
         data = { furnitureCardInfo } 
         renderItem = {({ item }) => (
-            <TouchableHighlight onPress={() => setModalVisible(true)}>
-                <FurnitureCard  price = { item.price } image = { item.image } material = { item.material } />
+            <TouchableHighlight   onPress={() => setModalVisible(true)}>
+                <FurnitureCard    price = { item.price } image = { item.image } material = { item.material } />
             </TouchableHighlight>
         ) }
     />
@@ -96,19 +89,30 @@ export const HomeScreen = () => {
 }
 
 const styles = StyleSheet.create({
+    imagestyleagain: {
+        borderSize: 5,
+        borderColor: 'black',
+        borderStyle: 'solid',
+    },
     container: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+      
     },
+    // texter: {
+    //     fontSize: '10px',
+    // },
     imagestyle: {
-        // padding: 40,
-        // width: 250,
-        // height: 500,
-        margin: 0,
-        alignItems: undefined,
-        justifyContent: undefined,
+        padding: 40,
+        width: 250,
+        height: 500,
+        
+
+        // margin: 0,
+        // alignItems: undefined,
+        // justifyContent: undefined,
     },
     centeredView: {
         flex: 1,
@@ -149,6 +153,8 @@ const styles = StyleSheet.create({
       },
       modalText: {
         marginBottom: 15,
-        textAlign: "center"
+        textAlign: "center",
+        fontSize: 30,
       }
+
 });
