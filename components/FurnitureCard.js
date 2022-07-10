@@ -1,15 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
 
-export const FurnitureCard = ({image, price}) => {
+export const FurnitureCard = ({image, price, material}) => {
   return (
     <View>
-        <Image
-            source={image}
-        />
-        <Text>
-            price: {price}
-        </Text>
+        {/* <TouchableHighlight> */}
+            <Image
+                source={image}
+            />
+            <Text>
+                price: {price}
+            </Text>
+            <Text>
+                material: {material}
+            </Text>
+
+            {/* <TouchableHighlight>  </TouchableHighlight> */}
+        {/* </TouchableHighlight> */}
     </View>
   )
 }
