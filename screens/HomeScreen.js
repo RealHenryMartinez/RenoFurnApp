@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, Image, Button, FlatList, TouchableHighlight, Modal, Pressable, Alert, SectionList } from 'react-native';
+import { NavigationContainer} from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 // import { TouchableHighlight } from 'react-native-web';
+
 
 import { FurnitureCard } from '../components/FurnitureCard';
 import CameraScreen from './CameraScreen';
@@ -29,10 +33,18 @@ export const HomeScreen = () => {
   
     return (
     <View style={styles.container}>
+      <Button
+        onPress={() => {
+          navigate("CameraScreen");
+        }}
+        title={'Order delivered'}
+      />
       {/* <Button onPress={ newButton } title="a"/>  */}
 
     {/* <FurnitureCard price={200} />
     <FurnitureCard price={300} image={couch1}/> */}
+
+    {/* This is the Modal for each Hardcoded post */}
       <Modal
         style = { styles.imagestyle }
         animationType="slide"
@@ -67,6 +79,8 @@ export const HomeScreen = () => {
           </View>
         </View>
       </Modal>
+    
+    {/* This is the front page */}
     <FlatList 
         
         data = { furnitureCardInfo } 
@@ -76,6 +90,7 @@ export const HomeScreen = () => {
             </TouchableHighlight>
         ) }
     />
+    
 
     
     {/* <Button 

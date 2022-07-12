@@ -1,38 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import {NativeModules, StyleSheet, Text, View, SafeAreaView, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Button, Image } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import { Camera } from 'expo-camera';
 import { shareAsync } from 'expo-sharing';
 import * as MediaLibrary from 'expo-media-library';
 
-// importing commponent
-import {CameraOptions, ImageLibraryOptions, Callback, ImagePickerResponse} from './types';
-export * from './types';
-
-
 // fixing camera reloading issue
 import { useIsFocused } from '@react-navigation/native';
-
-
 
 //include all data //
 export default function CameraScreen() {
     // useRef() <- does not cause the page to keep refreshing 
     let cameraRef = useRef();
-    const DEFAULT_OPTIONS: ImageLibraryOptions & CameraOptions = {
-        mediaType: 'photo',
-        videoQuality: 'high',
-        quality: 1,
-        maxWidth: 0,
-        maxHeight: 0,
-        includeBase64: false,
-        cameraType: 'back',
-        selectionLimit: 1,
-        saveToPhotos: false,
-        durationLimit: 0,
-        includeExtra: false,
-        presentationStyle: 'pageSheet'
-      };
+
+    // const [photo, setPhoto] = useState({
+    //     photo: null,
+    // })
+
 // re renders whenever switched to that tab
     const isFocused = useIsFocused();
 
@@ -149,36 +133,4 @@ const styles = StyleSheet.create({
         
     },
 });
-// k
 
-
-
-
-
-export function launchCamera(options: CameraOptions, callback?: Callback) : Promise<ImagePickerResponse> {
-  return new Promise(resolve => {
-    NativeModules.ImagePickerManager.launchCamera(
-      {...DEFAULT_OPTIONS, ...options},
-      (result: ImagePickerResponse) => {
-        if(callback) callback(result);
-        resolve(result);
-      },
-    );
-  });  
-}
-
-export function launchImageLibrary(
-  options: ImageLibraryOptions,
-  callback?: Callback,
-) : Promise<ImagePickerResponse> {
-  return new Promise(resolve => {
-    NativeModules.ImagePickerManager.launchImageLibrary(
-      {...DEFAULT_OPTIONS, ...options},
-      (result: ImagePickerResponse) => {
-        if(callback) callback(result);
-        resolve(result);
-      },
-    );
-  })
-  
-}

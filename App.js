@@ -6,6 +6,7 @@ import CameraScreen from './screens/CameraScreen';
 
 // custom Components
 import { HomeScreen } from './screens/HomeScreen';
+import ChoosePhoto from './screens/ChoosePhoto';
 
 // an instance of the bottom Tab Navigator
 const Tabs = createBottomTabNavigator();
@@ -18,9 +19,9 @@ export default function App() {
     <NavigationContainer>
       
       <Tabs.Navigator>
-      <Tabs.Screen name="Home" component={HomeScreen} />
+        <Tabs.Screen name="Home" component={HomeScreen} />
         <Tabs.Screen name="Camera"  component={CameraScreen} />
-        
+        <Tabs.Screen name="Upload" component={ChoosePhoto} />
       </Tabs.Navigator>
     </NavigationContainer>
   );

@@ -1,0 +1,78 @@
+import { ImagePickerAvatar } from "../components/ImagePickerAvatar";
+import { ImagePickerModal } from "../components/ImagePickerModal";
+
+export default function ChoosePhoto() {
+    const [pickerResponse, setPickerResponse] = useState(null);
+    const [visible, setVisible] = useState(false);
+  
+    const onImageLibraryPress = useCallback(() => {
+      const options = {
+        selectionLimit: 1,
+        mediaType: 'photo',
+        includeBase64: false,
+      };
+      ImagePicker.launchImageLibrary(options, setPickerResponse);
+    }, []);
+  
+    const onCameraPress = useCallback(() => {
+      const options = {
+        saveToPhotos: true,
+        mediaType: 'photo',
+        includeBase64: false,
+      };
+      ImagePicker.launchCamera(options, setPickerResponse);
+    }, []);
+  
+    const uri = pickerResponse?.assets && pickerResponse.assets[0].uri;
+  
+    return (
+      <View style={styles.screen}>
+        <ImagePickerHeader />
+        <ImagePickerAvatar uri={uri} onPress={() => setVisible(true)} />
+        <ImagePickerModal
+          isVisible={visible}
+          onClose={() => setVisible(false)}
+          onImageLibraryPress={onImageLibraryPress}
+          onCameraPress={onCameraPress}
+        />
+      </View>
+    );
+  }
+
+// export default function App() {
+//   const [pickerResponse, setPickerResponse] = useState(null);
+//   const [visible, setVisible] = useState(false);
+
+//   const onImageLibraryPress = useCallback(() => {
+//     const options = {
+//       selectionLimit: 1,
+//       mediaType: 'photo',
+//       includeBase64: false,
+//     };
+//     ImagePicker.launchImageLibrary(options, setPickerResponse);
+//   }, []);
+
+//   const onCameraPress = useCallback(() => {
+//     const options = {
+//       saveToPhotos: true,
+//       mediaType: 'photo',
+//       includeBase64: false,
+//     };
+//     ImagePicker.launchCamera(options, setPickerResponse);
+//   }, []);
+
+//   const uri = pickerResponse?.assets && pickerResponse.assets[0].uri;
+
+//   return (
+//     <View style={styles.screen}>
+//       <ImagePickerHeader />
+//       <ImagePickerAvatar uri={uri} onPress={() => setVisible(true)} />
+//       <ImagePickerModal
+//         isVisible={visible}
+//         onClose={() => setVisible(false)}
+//         onImageLibraryPress={onImageLibraryPress}
+//         onCameraPress={onCameraPress}
+//       />
+//     </View>
+//   );
+// }
