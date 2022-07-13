@@ -6,10 +6,27 @@ import CameraScreen from './screens/CameraScreen';
 
 // custom Components
 import { HomeScreen } from './screens/HomeScreen';
-import ChoosePhoto from './screens/ChoosePhoto';
+import SeePhoto from './screens/SeePhoto';
+
 
 // an instance of the bottom Tab Navigator
 const Tabs = createBottomTabNavigator();
+const headerOptions = {
+  headerShadowVisible: false,
+  headerBackTitle: ' ',
+  headerStyle: {
+    backgroundColor: '#242627',
+    borderBottomColor: 'transparent',
+    borderBottomWidth: 0,
+  },
+  headerTitleStyle: {
+    fontSize: 20,
+    color: 'white',
+    fontWeight: 'bold'
+  },
+  animation: 'slide_from_right',
+};
+
 
 export default function App() {
     
@@ -18,10 +35,11 @@ export default function App() {
 
     <NavigationContainer>
       
-      <Tabs.Navigator>
+      {/* screenOptions={headerOptions} */}
+      <Tabs.Navigator >
         <Tabs.Screen name="Home" component={HomeScreen} />
         <Tabs.Screen name="Camera"  component={CameraScreen} />
-        <Tabs.Screen name="Upload" component={ChoosePhoto} />
+        <Tabs.Screen name="Upload" component={SeePhoto} />
       </Tabs.Navigator>
     </NavigationContainer>
   );
