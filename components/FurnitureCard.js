@@ -6,7 +6,7 @@ export const FurnitureCard = ({image, price, material}) => {
     <View>
         {/* <TouchableHighlight> */}
             <Image
-                source={image}
+                source = {image}
             />
             <Text>
                 price: {price}

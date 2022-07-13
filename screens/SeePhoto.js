@@ -6,7 +6,7 @@ export default function SeePhoto() {
  return (
 <View style={styles.container}>
 <UploadImage/>
-<Text style={{marginVertical:20,fontSize:16}}>Welcome, FuzzySid</Text>
+<Text style={{marginVertical:20,fontSize:16}}>Profile</Text>
 </View>
  );
 }

@@ -2,15 +2,18 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import CameraScreen from './screens/CameraScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // custom Components
 import { HomeScreen } from './screens/HomeScreen';
 import SeePhoto from './screens/SeePhoto';
-
+import { Camera } from 'expo-camera';
+import CameraScreen from './screens/CameraScreen';
 
 // an instance of the bottom Tab Navigator
 const Tabs = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
 const headerOptions = {
   headerShadowVisible: false,
   headerBackTitle: ' ',
@@ -34,8 +37,13 @@ export default function App() {
   return (
 
     <NavigationContainer>
+      <Stack.Navigator
+
+        screenOptions={headerOptions}
+      >
+        <Stack.Screen name="NewCamera" component={CameraScreen} />
+      </Stack.Navigator>
       
-      {/* screenOptions={headerOptions} */}
       <Tabs.Navigator >
         <Tabs.Screen name="Home" component={HomeScreen} />
         <Tabs.Screen name="Camera"  component={CameraScreen} />
