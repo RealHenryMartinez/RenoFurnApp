@@ -17,7 +17,8 @@ let furniture4 = require("../assets/wardrobe3.png");
 let furniture5 = require("../assets/wardrobe4.png");
 
 
-export const HomeScreen = () => {
+export const ItemListScreen = ({ navigation, route }) => {
+  console.log(route.params)
     // function newButton() {
     //     CameraScreen
     // }
@@ -37,7 +38,7 @@ export const HomeScreen = () => {
         onPress={() => {
           navigate("CameraScreen");
         }}
-        title={'Order delivered'}
+        title={route.params.categoryName}
       />
       {/* <Button onPress={ newButton } title="a"/>  */}
 
