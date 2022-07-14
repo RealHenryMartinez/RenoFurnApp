@@ -15,37 +15,42 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-// import { TouchableHighlight } from 'react-native-web';
+
+// importing components and screens
 
 import { FurnitureCard } from "../components/FurnitureCard";
 import CameraScreen from "./CameraScreen";
 import { CategoryCard } from "../components/CategoryCard";
 
-let furniture1 = require("../assets/couch.png");
-let furniture2 = require("../assets/wardrobe.png");
-let furniture3 = require("../assets/wardrobe2.png");
-let furniture4 = require("../assets/wardrobe3.png");
-let furniture5 = require("../assets/wardrobe4.png");
+
 
 export const CategoriesScreen = ({ navigation }) => {
-  // function newButton() {
-  //     CameraScreen
-  // }
+
+  /* Each card will have a different name with this list of objects */
   const [furnitureCardInfo, setFurnitureCardInfo] = useState([
     { name: "couch" },
     { name: "wardrobe" },
   ]);
-
+/* used to make modal from posts be visible or not */
   const [modalVisible, setModalVisible] = useState(false);
+ 
 
   const handleCategoryPress = (name) => {
     console.log("tap", name),
+    /* 
+    used to navigate throughout different categories of furniture
+    navigation is declared in the main component 
+    */
       navigation.navigate("ItemList", { categoryName: name });
   };
 
+  /* render the page */
   return (
     <View style={styles.container}>
       {/* This is the front page */}
+      
+      {/* create a list with different items that 
+      have each a touchable highlight to navigate to that category of item */}
       <FlatList
         data={furnitureCardInfo}
         renderItem={({ item }) => (
@@ -54,6 +59,7 @@ export const CategoriesScreen = ({ navigation }) => {
               handleCategoryPress(item.name);
             }}
           >
+            {/* Display the name of the category on the top of the screen */}
             <CategoryCard name={item.name} />
           </TouchableHighlight>
         )}

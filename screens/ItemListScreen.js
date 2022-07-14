@@ -9,7 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FurnitureCard } from '../components/FurnitureCard';
 import CameraScreen from './CameraScreen';
 
-
+/* hardcoded images */
 let furniture1 = require("../assets/couch.png");
 let furniture2 = require("../assets/wardrobe.png");
 let furniture3 = require("../assets/wardrobe2.png");

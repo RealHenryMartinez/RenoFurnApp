@@ -6,10 +6,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // custom Components
 import { HomeScreen } from "./screens/ItemListScreen";
-import SeePhoto from "./screens/SeePhoto";
+import SeePhoto from "./screens/ProfileScreen";
 import { Camera } from "expo-camera";
 import CameraScreen from "./screens/CameraScreen";
 import HomeScreenStack from "./components/HomeScreensStack";
+import UploadProfileScreen from "./components/UploadProfileScreen";
+import { UploadFurnitureScreen } from "./screens/UploadFurnitureScreen";
+import UserStack from "./components/UserStack";
 
 // an instance of the bottom Tab Navigator
 const Tabs = createBottomTabNavigator();
@@ -33,14 +36,24 @@ const headerOptions = {
 export default function App() {
   return (
     <NavigationContainer>
+      
       <Tabs.Navigator initialRouteName="Home">
+        <Tabs.Screen
+          options={{ headerShown: false }} // hides 'Home' header
+          name="Upload here"
+          component={UploadFurnitureScreen}
+        />
         <Tabs.Screen
           options={{ headerShown: false }} // hides 'Home' header
           name="Home"
           component={HomeScreenStack}
         />
-        <Tabs.Screen name="Camera" component={CameraScreen} />
-        <Tabs.Screen name="Upload" component={SeePhoto} />
+        {/* <Tabs.Screen name="Profile" component={UploadProfileScreen} /> */}
+        <Tabs.Screen
+          options={{ headerShown: false }} // hides 'Home' header
+          name="User"
+          component={UserStack}
+        />
       </Tabs.Navigator>
     </NavigationContainer>
   );
@@ -49,8 +62,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "5BBEB3",
     alignItems: "center",
     justifyContent: "center",
+    display: "grid",
+    gridTemplateColumns: "auto auto",
   },
 });

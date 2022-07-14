@@ -3,7 +3,7 @@ import { Image, View, Platform, TouchableOpacity, Text, StyleSheet } from 'react
 import { AntDesign } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 
-export default function UploadImage() {
+export default function UploadProfileScreen() {
 // 
     useEffect(() => {
       checkForCameraRollPermission()
