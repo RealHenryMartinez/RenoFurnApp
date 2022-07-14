@@ -6,15 +6,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import { TouchableHighlight } from 'react-native-web';
 
 
-import { FurnitureCard } from '../components/FurnitureCard';
-import CameraScreen from './CameraScreen';
+import FurnitureCard from '../../components/Cards/FurnitureCard'
 
 /* hardcoded images */
-let furniture1 = require("../assets/couch.png");
-let furniture2 = require("../assets/wardrobe.png");
-let furniture3 = require("../assets/wardrobe2.png");
-let furniture4 = require("../assets/wardrobe3.png");
-let furniture5 = require("../assets/wardrobe4.png");
+let furniture1 = require('../../assets/couch.png');
+let furniture2 = require("../../assets/wardrobe.png");
+let furniture3 = require("../../assets/wardrobe2.png");
+let furniture4 = require("../../assets/wardrobe3.png");
+let furniture5 = require("../../assets/wardrobe4.png");
 
 
 export const ItemListScreen = ({ navigation, route }) => {

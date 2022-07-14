@@ -7,7 +7,7 @@ import {
   TouchableHighlight,
 } from "react-native";
 
-export const CategoryCard = ({ name }) => {
+export const UserFurnitureCard = ({ name }) => {
   return (
     <View style={styles.card}>
       <Text>{name}</Text>

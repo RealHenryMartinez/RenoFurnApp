@@ -1,13 +1,11 @@
-import { CategoriesScreen } from "../screens/FrontPageHere/CategoriesScreen";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { ItemListScreen } from "../screens/ItemListScreen";
 
 
-import { UploadFurnitureDetailsScreen } from "../../screens/UploadingFurnUser/UploadFurnitureDetailsScreen copy";
-import UploadFurnitureImageScreen from "../../screens/UploadingFurnUser/UploadFurnitureImageScreen";
-import User
+import UploadFurnitureImageScreen from '../screens/UploadTab/UploadFurnitureImageScreen'
+import UploadFurnitureDetailsScreen from '../screens/UploadTab/UploadFurnitureDetailsScreen'
 
 const headerOptions = {
   headerShadowVisible: false,
@@ -25,7 +23,7 @@ const headerOptions = {
   animation: "slide_from_right",
 };
 
-export default function HomeScreenStack() {
+export default function UploadFurnitureStack() {
   const Stack = createNativeStackNavigator();
 
   return (

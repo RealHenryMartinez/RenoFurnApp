@@ -5,9 +5,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // custom Component screen
-import HomeScreenStack from "./screens/UploadingFurnUser/UploadFurnitureImageScreen";
-import UserStack from "./components/ProfilePage/UserStack";
-import UserFurniture from "./screens/UploadingFurnUser/UserFurnitureScreen";
+import HomeScreenStack from "./Navigation/HomeScreensStack";
+import UserStack from "./Navigation/UserStack";
+import UploadFurnitureStack from "./Navigation/UploadFurnitureStack";
 
 // an instance of the bottom Tab Navigator
 const Tabs = createBottomTabNavigator();
@@ -35,8 +35,8 @@ export default function App() {
       <Tabs.Navigator initialRouteName="Home">
         <Tabs.Screen
           options={{ headerShown: false }} // hides 'Home' header
-          name="Upload here"
-          component={UserFurniture}
+          name="Upload"
+          component={UploadFurnitureStack}
         />
         <Tabs.Screen
           options={{ headerShown: false }} // hides 'Home' header

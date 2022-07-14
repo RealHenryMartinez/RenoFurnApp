@@ -1,12 +1,8 @@
-
+import { CategoriesScreen } from "../screens/HomeTab/CategoriesScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-import UserFurniture from "../../screens/UploadingFurnUser/UserFurnitureScreen";
-
-
-
+import { ItemListScreen } from "../screens/HomeTab/ItemListScreen";
 
 const headerOptions = {
   headerShadowVisible: false,
@@ -24,17 +20,16 @@ const headerOptions = {
   animation: "slide_from_right",
 };
 
-export default function UserStack() {
+export default function HomeScreenStack() {
   const Stack = createNativeStackNavigator();
 
   return (
     <Stack.Navigator
       screenOptions={headerOptions}
-      initialRouteName="Profile"
+      initialRouteName="Categories"
     >
-      <Stack.Screen name="Your Furniture" component={UserFurniture} />
-
+      <Stack.Screen name="Categories" component={CategoriesScreen} />
+      <Stack.Screen name="ItemList" component={ItemListScreen} />
     </Stack.Navigator>
   );
 }
-

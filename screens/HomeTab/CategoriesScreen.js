@@ -18,13 +18,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // importing components and screens
 
-import { FurnitureCard } from "../../components/FurnitureCard";
-import CameraScreen from "../CameraScreen";
-import { CategoryCard } from "../../components/FrontPageC/CategoryCard";
+import { CategoryCard } from "../../components/Cards/CategoryCard";
 
 
-
-export const UserFurnitureScreen = ({ navigation }) => {
+export const CategoriesScreen = ({ navigation }) => {
 
   /* Each card will have a different name with this list of objects */
   const [furnitureCardInfo, setFurnitureCardInfo] = useState([
