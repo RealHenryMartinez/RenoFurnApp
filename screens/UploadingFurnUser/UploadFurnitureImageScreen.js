@@ -2,10 +2,10 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import UserStack from "../../components/ProfilePage/UserStack";
+
 
 // screens
-
+import UserFurniture from "./UserFurnitureScreen";
 
 const headerOptions = {
   headerShadowVisible: false,
@@ -23,14 +23,14 @@ const headerOptions = {
   animation: "slide_from_right",
 };
 
-export default function HomeScreenStack() {
+export default function UploadFurnitureImageScreen() {
   const Stack = createNativeStackNavigator();
 
   return (
     <Stack.Navigator
       screenOptions={headerOptions}
     >
-      <Stack.Screen name="Finish" component={UserStack} />
+      <Stack.Screen name="Finish" component={UserFurniture} />
     </Stack.Navigator>
   );
 }

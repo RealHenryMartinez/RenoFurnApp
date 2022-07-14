@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // custom Component screen
 import HomeScreenStack from "./screens/UploadingFurnUser/UploadFurnitureImageScreen";
 import UserStack from "./components/ProfilePage/UserStack";
-import UserFurniture from "./screens/UploadingFurnUser/UserFurniture";
+import UserFurniture from "./screens/UploadingFurnUser/UserFurnitureScreen";
 
 // an instance of the bottom Tab Navigator
 const Tabs = createBottomTabNavigator();

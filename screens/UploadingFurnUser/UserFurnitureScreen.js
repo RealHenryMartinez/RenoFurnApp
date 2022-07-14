@@ -18,12 +18,18 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // importing components and screens
 
+import { FurnitureCard } from "../../components/FurnitureCard";
+import CameraScreen from "../CameraScreen";
+import { CategoryCard } from "../../components/FrontPageC/CategoryCard";
 
-export const UploadFurnitureDetailsScreen = ({ navigation }) => {
+
+
+export const UserFurnitureScreen = ({ navigation }) => {
 
   /* Each card will have a different name with this list of objects */
-  const [UploadFurnitureImageScreen, setUploadFurnitureImageScreen] = useState([
-    { name: "Upload Image" },
+  const [furnitureCardInfo, setFurnitureCardInfo] = useState([
+    { name: "couch" },
+    { name: "wardrobe" },
   ]);
 /* used to make modal from posts be visible or not */
   const [modalVisible, setModalVisible] = useState(false);
@@ -35,7 +41,7 @@ export const UploadFurnitureDetailsScreen = ({ navigation }) => {
     used to navigate throughout different categories of furniture
     navigation is declared in the main component 
     */
-      navigation.navigate("Upload Image", { categoryName: name });
+      navigation.navigate("ItemList", { categoryName: name });
   };
 
   /* render the page */
@@ -46,7 +52,7 @@ export const UploadFurnitureDetailsScreen = ({ navigation }) => {
       {/* create a list with different items that 
       have each a touchable highlight to navigate to that category of item */}
       <FlatList
-        data={UploadFurnitureImageScreen}
+        data={furnitureCardInfo}
         renderItem={({ item }) => (
           <TouchableHighlight
             onPress={() => {
@@ -54,7 +60,7 @@ export const UploadFurnitureDetailsScreen = ({ navigation }) => {
             }}
           >
             {/* Display the name of the category on the top of the screen */}
-            < name={item.name} />
+            <CategoryCard name={item.name} />
           </TouchableHighlight>
         )}
       />
