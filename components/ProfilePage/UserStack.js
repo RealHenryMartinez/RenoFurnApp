@@ -1,9 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native';
-import UploadImage from '../components/UploadProfileScreen';
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import UploadProfileScreen from '../components/UploadProfileScreen';
+
+import UserFurniture from "../../screens/UploadingFurnUser/UserFurniture";
+
+
+
 
 const headerOptions = {
   headerShadowVisible: false,
@@ -21,23 +24,17 @@ const headerOptions = {
   animation: "slide_from_right",
 };
 
-export default function ProfileScreen() {
+export default function UserStack() {
   const Stack = createNativeStackNavigator();
-  
- return (
-<View style={styles.container}>
-  <UploadImage/>
-  <Text style={{marginVertical:20,fontSize:16}}>Profile Here</Text>
-</View>
- );
-}
 
-const styles = StyleSheet.create({
- container: {
-   padding:50,
-   backgroundColor: '#fff',
-   alignItems: 'center',
-   justifyContent: 'center',
- },
-});
+  return (
+    <Stack.Navigator
+      screenOptions={headerOptions}
+      initialRouteName="Profile"
+    >
+      <Stack.Screen name="Your Furniture" component={UserFurniture} />
+
+    </Stack.Navigator>
+  );
+}
 

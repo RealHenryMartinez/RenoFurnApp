@@ -34,12 +34,12 @@ export const ItemListScreen = ({ navigation, route }) => {
   
     return (
     <View style={styles.container}>
-      <Button
+      {/* <Button
         onPress={() => {
           navigate("CameraScreen");
         }}
         title={route.params.categoryName}
-      />
+      /> */}
       {/* <Button onPress={ newButton } title="a"/>  */}
 
     {/* <FurnitureCard price={200} />

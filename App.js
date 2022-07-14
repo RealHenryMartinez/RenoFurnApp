@@ -4,15 +4,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-// custom Components
-import { HomeScreen } from "./screens/ItemListScreen";
-import SeePhoto from "./screens/ProfileScreen";
-import { Camera } from "expo-camera";
-import CameraScreen from "./screens/CameraScreen";
-import HomeScreenStack from "./components/HomeScreensStack";
-import UploadProfileScreen from "./components/UploadProfileScreen";
-import { UploadFurnitureScreen } from "./screens/UploadFurnitureScreen";
-import UserStack from "./components/UserStack";
+// custom Component screen
+import HomeScreenStack from "./screens/UploadingFurnUser/UploadFurnitureImageScreen";
+import UserStack from "./components/ProfilePage/UserStack";
+import UserFurniture from "./screens/UploadingFurnUser/UserFurniture";
 
 // an instance of the bottom Tab Navigator
 const Tabs = createBottomTabNavigator();
@@ -41,7 +36,7 @@ export default function App() {
         <Tabs.Screen
           options={{ headerShown: false }} // hides 'Home' header
           name="Upload here"
-          component={UploadFurnitureScreen}
+          component={UserFurniture}
         />
         <Tabs.Screen
           options={{ headerShown: false }} // hides 'Home' header

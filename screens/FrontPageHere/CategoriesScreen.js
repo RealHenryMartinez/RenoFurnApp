@@ -18,9 +18,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // importing components and screens
 
-import { FurnitureCard } from "../components/FurnitureCard";
-import CameraScreen from "./CameraScreen";
-import { CategoryCard } from "../components/CategoryCard";
+import { FurnitureCard } from "../../components/FurnitureCard";
+import CameraScreen from "../CameraScreen";
+import { CategoryCard } from "../../components/FrontPageC/CategoryCard";
 
 
 

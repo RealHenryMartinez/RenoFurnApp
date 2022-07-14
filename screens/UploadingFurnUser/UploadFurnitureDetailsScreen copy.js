@@ -1,8 +1,11 @@
-import { CategoriesScreen } from "../screens/CategoriesScreen";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { ItemListScreen } from "../screens/ItemListScreen";
+
+
+// Screen Upload //
+import UploadFurnitureImageScreen from './UploadFurnitureImageScreen'
 
 const headerOptions = {
   headerShadowVisible: false,
@@ -20,16 +23,14 @@ const headerOptions = {
   animation: "slide_from_right",
 };
 
-export default function HomeScreenStack() {
+export default function UploadFurnitureDetailsScreen() {
   const Stack = createNativeStackNavigator();
 
   return (
     <Stack.Navigator
       screenOptions={headerOptions}
-      initialRouteName="Categories"
     >
-      <Stack.Screen name="Categories" component={CategoriesScreen} />
-      <Stack.Screen name="ItemList" component={ItemListScreen} />
+      <Stack.Screen name="UploadFurniture" component={UploadFurnitureImageScreen} />
     </Stack.Navigator>
   );
 }
