@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import { TouchableHighlight } from 'react-native-web';
 
 
-import FurnitureCard from '../../components/Cards/FurnitureCard'
+import { FurnitureCard } from '../../components/Cards/FurnitureCard'
 
 /* hardcoded images */
 let furniture1 = require('../../assets/couch.png');

@@ -2,8 +2,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Text, StyleSheet, View } from "react-native";
 
-import UserFurniture from "../screens/UploadTab/UserFurnitureScreen";
+
+import UploadProfilePicture from "../components/Uploads/UploadProfilePicture";
+
 
 
 
@@ -28,13 +31,24 @@ export default function UserStack() {
   const Stack = createNativeStackNavigator();
 
   return (
+
     <Stack.Navigator
       screenOptions={headerOptions}
-      initialRouteName="Profile"
+      initialRouteName="Picture"
     >
-      <Stack.Screen name="Your Furniture" component={UserFurniture} />
 
+      <Stack.Screen name="Picture" component={UploadProfilePicture} />
+      
     </Stack.Navigator>
+  
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

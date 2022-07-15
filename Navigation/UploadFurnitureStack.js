@@ -3,9 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-
-import UploadFurnitureImageScreen from '../screens/UploadTab/UploadFurnitureImageScreen'
-import UploadFurnitureDetailsScreen from '../screens/UploadTab/UploadFurnitureDetailsScreen'
+import UserFurnitureScreen from '../screens/UploadTab/UserFurnitureScreen'
+import UploadFurnitureDetailsScreen  from '../screens/UploadTab/UploadFurnitureDetailsScreen'
+import UploadFurnitureImageScreen  from '../screens/UploadTab/UploadFurnitureImageScreen'
 
 const headerOptions = {
   headerShadowVisible: false,
@@ -31,7 +31,7 @@ export default function UploadFurnitureStack() {
       screenOptions={headerOptions}
       initialRouteName="User Furniture"
     >
-      <Stack.Screen name="User Furniture" component={UserFurniture} />
+      <Stack.Screen name="User Furniture" component={UserFurnitureScreen} />
       <Stack.Screen name="Upload Furniture Details" component={UploadFurnitureDetailsScreen} />
       <Stack.Screen name="Upload Furniture Image" component={UploadFurnitureImageScreen} />
     </Stack.Navigator>
