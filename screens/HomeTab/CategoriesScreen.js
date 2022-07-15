@@ -30,7 +30,7 @@ export const CategoriesScreen = ({ navigation }) => {
   ]);
 /* used to make modal from posts be visible or not */
   const [modalVisible, setModalVisible] = useState(false);
- 
+
 
   const handleCategoryPress = (name) => {
     console.log("tap", name),
