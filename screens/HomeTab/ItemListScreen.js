@@ -138,7 +138,7 @@ export const ItemListScreen = ({ navigation, route }) => {
         data = { route.params.items } 
         renderItem = {({ item }) => (
             <TouchableHighlight   onPress={() => setModalVisible(true)}>
-                <FurnitureCard    price = { item.price } image = { item.image } material = { item.material } />
+                <FurnitureCard    name = { item.name } price = { item.price } image = { item.image } material = { item.material } />
             </TouchableHighlight>
         ) }
     />

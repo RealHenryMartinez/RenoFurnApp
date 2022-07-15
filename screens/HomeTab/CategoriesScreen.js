@@ -30,12 +30,14 @@ export const CategoriesScreen = ({ navigation }) => {
 
   /* Each card will have a different name with this list of objects */
   const [furnitureCardInfo, setFurnitureCardInfo] = useState([
+    // Passing data for category (Parent) //
     { name: "chairs",  items: [
+      // passing data from item list (Child)
       {
         name: 'table chair',
         price: '$50',
         material: 'wood', 
-        image:require('../../assets/couch.png')
+        image: furniture1
       },
       {
         name: 'dinning chair',
@@ -57,6 +59,8 @@ export const CategoriesScreen = ({ navigation }) => {
     ]  },
 
   ]);
+
+
 /* used to make modal from posts be visible or not */
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -70,6 +74,7 @@ export const CategoriesScreen = ({ navigation }) => {
       navigation.navigate("ItemList", { name: name,  items:items  });
   };
 
+  
   /* render the page */
   return (
     <View style={styles.container}>
@@ -83,6 +88,7 @@ export const CategoriesScreen = ({ navigation }) => {
         renderItem={({ item }) => (
           <TouchableHighlight
             onPress={() => {
+              // rendering the Category and ItemList
               handleCategoryPress(item.name, item.items);
             }}
           >
