@@ -14,31 +14,60 @@ import {
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
+import item from '../../assets/couch.png';
 
 // importing components and screens
 
 import { CategoryCard } from "../../components/Cards/CategoryCard";
 
+let furniture1 = require('../../assets/couch.png');
+let furniture2 = require("../../assets/wardrobe.png");
+let furniture3 = require("../../assets/wardrobe2.png");
+let furniture4 = require("../../assets/wardrobe3.png");
+let furniture5 = require("../../assets/wardrobe4.png");
 
 export const CategoriesScreen = ({ navigation }) => {
 
   /* Each card will have a different name with this list of objects */
   const [furnitureCardInfo, setFurnitureCardInfo] = useState([
-    { name: "couch" },
-    { name: "wardrobe" },
+    { name: "chairs",  items: [
+      {
+        name: 'table chair',
+        price: '$50',
+        material: 'wood', 
+        image:require('../../assets/couch.png')
+      },
+      {
+        name: 'dinning chair',
+        price: '$950',material: 'wood', 
+        image: furniture2
+      }
+    ]  },
+    { name: "tables",  items: [
+      {
+        name: 'dinning table',
+        price: '$1050',
+        material: 'wood', 
+        image: furniture4
+      },
+      {
+        name: 'outdoor table',
+        price: '$500',material: 'wood',   image: furniture3
+      }
+    ]  },
+
   ]);
 /* used to make modal from posts be visible or not */
   const [modalVisible, setModalVisible] = useState(false);
 
 
-  const handleCategoryPress = (name) => {
+  const handleCategoryPress = (name, items) => {
     console.log("tap", name),
     /* 
     used to navigate throughout different categories of furniture
     navigation is declared in the main component 
     */
-      navigation.navigate("ItemList", { categoryName: name });
+      navigation.navigate("ItemList", { name: name,  items:items  });
   };
 
   /* render the page */
@@ -49,14 +78,15 @@ export const CategoriesScreen = ({ navigation }) => {
       {/* create a list with different items that 
       have each a touchable highlight to navigate to that category of item */}
       <FlatList
+        numColumns={2}
         data={furnitureCardInfo}
         renderItem={({ item }) => (
           <TouchableHighlight
             onPress={() => {
-              handleCategoryPress(item.name);
+              handleCategoryPress(item.name, item.items);
             }}
           >
-            {/* Display the name of the category on the top of the screen */}
+            {/* Display the name of the category ons the top of the screen */}
             <CategoryCard name={item.name} />
           </TouchableHighlight>
         )}

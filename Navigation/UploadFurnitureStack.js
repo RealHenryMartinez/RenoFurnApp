@@ -7,28 +7,28 @@ import UserFurnitureScreen from '../screens/UploadTab/UserFurnitureScreen'
 import UploadFurnitureDetailsScreen  from '../screens/UploadTab/UploadFurnitureDetailsScreen'
 import UploadFurnitureImageScreen  from '../screens/UploadTab/UploadFurnitureImageScreen'
 
-const headerOptions = {
-  headerShadowVisible: false,
-  headerBackTitle: " ",
-  headerStyle: {
-    backgroundColor: "#242627",
-    borderBottomColor: "transparent",
-    borderBottomWidth: 0,
-  },
-  headerTitleStyle: {
-    fontSize: 20,
-    color: "white",
-    fontWeight: "bold",
-  },
-  animation: "slide_from_right",
-};
+// const headerOptions = {
+//   headerShadowVisible: false,
+//   headerBackTitle: " ",
+//   headerStyle: {
+//     backgroundColor: "#242627",
+//     borderBottomColor: "transparent",
+//     borderBottomWidth: 0,
+//   },
+//   headerTitleStyle: {
+//     fontSize: 20,
+//     color: "white",
+//     fontWeight: "bold",
+//   },
+//   animation: "slide_from_right",
+// };
 
 export default function UploadFurnitureStack() {
   const Stack = createNativeStackNavigator();
 
   return (
     <Stack.Navigator
-      screenOptions={headerOptions}
+
       initialRouteName="User Furniture"
     >
       <Stack.Screen name="User Furniture" component={UserFurnitureScreen} />
