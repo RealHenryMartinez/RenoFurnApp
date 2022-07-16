@@ -54,7 +54,8 @@ export const CategoriesScreen = ({ navigation }) => {
       },
       {
         name: 'outdoor table',
-        price: '$500',material: 'wood',   image: furniture3
+        price: '$500',material: 'wood',   
+        image: furniture3,
       }
     ]  },
 

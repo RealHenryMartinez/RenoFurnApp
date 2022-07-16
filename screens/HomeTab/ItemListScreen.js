@@ -14,6 +14,42 @@ import { FurnitureCard } from '../../components/Cards/FurnitureCard'
 
 export const ItemListScreen = ({ navigation, route }) => {
   console.log(route.params)
+
+let furniture1 = require('../../assets/couch.png');
+let furniture2 = require("../../assets/wardrobe.png");
+let furniture3 = require("../../assets/wardrobe2.png");
+let furniture4 = require("../../assets/wardrobe3.png");
+let furniture5 = require("../../assets/wardrobe4.png");
+
+  const [furnitureCardInfo, setFurnitureCardInfo] = useState([
+  { name: "chairs",  items: [
+    // passing data from item list (Child)
+    {
+      name: 'table chair',
+      price: '$50',
+      material: 'wood', 
+      image: furniture1
+    },
+    {
+      name: 'dinning chair',
+      price: '$950',material: 'wood', 
+      image: furniture2
+    }
+  ]  },
+  { name: "tables",  items: [
+    {
+      name: 'dinning table',
+      price: '$1050',
+      material: 'wood', 
+      image: furniture4
+    },
+    {
+      name: 'outdoor table',
+      price: '$500',material: 'wood',   
+      image: furniture3,
+    }
+  ]  },
+]);
     // // function newButton() {
     // //     CameraScreen
     // // }
@@ -96,6 +132,10 @@ export const ItemListScreen = ({ navigation, route }) => {
     {/* <FurnitureCard price={200} />
     <FurnitureCard price={300} image={couch1}/> */}
 
+
+
+
+
     {/* This is the Modal for each Hardcoded post */}
       <Modal
         style = { styles.imagestyle }
@@ -114,14 +154,15 @@ export const ItemListScreen = ({ navigation, route }) => {
             <SectionList
                 style={styles.imagestyle} 
                 sections={[
-                    {title: 'Furniture', data: ["price: 200", "Material: wood"]},
+                    {title: 'furniture', data: ["price: 200", "Material: wood"]},
                 ]} // parameter -> item being passed -> render item //
 
-          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-          renderSectionHeader={({section}) => <Text style={styles.modalText}>{section.title}</Text>}
+          renderItem={({items}) => <Text style={styles.item}>{items.material}</Text>}
+          renderSectionHeader={({name}) => <Text style={styles.modalText}>{name}</Text>}
           // keyExtractor={(item, index) => `basicListEntry-${item.title}`}
         />
             </Text>
+            {/* closing the modal */}
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}

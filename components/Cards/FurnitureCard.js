@@ -6,7 +6,7 @@ export const FurnitureCard = ({image, price, material, name}) => {
   return (
 
     // One Post Container //
-    <View style={{paddingHorizontal: 10}}>
+    <View style={[styles.postDetail, {paddingHorizontal: 3}]}>
         {/* Image Container */}
         <View style={styles.imageContainer}>
             <Image
@@ -26,6 +26,12 @@ export const FurnitureCard = ({image, price, material, name}) => {
 }
 
 const styles = StyleSheet.create({
+    postDetail: {
+        borderStyle: 'solid',
+        borderRadius: 10,
+        borderColor: '#40e0d0',
+        borderWidth: 3,
+    },
     imageStyle: {
         width: 100,
         height: 100,
@@ -52,10 +58,14 @@ const styles = StyleSheet.create({
     details: {
         flexDirection: 'row',
         alignItems: 'space-between',
-        // backgroundColor: 'yellow'
+        backgroundColor: '#40e0d0',
+        padding: 10,
+        
+        
     },
     textStyle: {
         flex: 1,
+        fontSize: 12,
         
     }
   });
