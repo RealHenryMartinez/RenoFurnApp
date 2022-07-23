@@ -6,6 +6,7 @@ import {
   Image,
   TouchableHighlight,
 } from "react-native";
+// the card is basically the box or container you see on the page
 
 export const CategoryCard = ({ name }) => {
   return (

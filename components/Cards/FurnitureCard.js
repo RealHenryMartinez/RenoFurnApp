@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native'
 export const FurnitureCard = ({image, price, material, name}) => {
     console.log(image)
   return (
-
+// the card is basically the boxes
     // One Post Container //
     <View style={[styles.postDetail, {paddingHorizontal: 3}]}>
         {/* Image Container */}
